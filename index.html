@@ -586,6 +586,128 @@
       .stat-bomb .number { font-size: 6em; }
     }
 
+    /* ======================================================
+       ROTATING WORD ANIMATION (PAI slide)
+       ====================================================== */
+    .rotating-word-container {
+      display: inline-block;
+      position: relative;
+      min-width: 280px;
+      text-align: left;
+    }
+    .rotating-word {
+      display: inline-block;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      animation: rotateWord 10s infinite;
+    }
+    .rotating-word:nth-child(1) { animation-delay: 0s; }
+    .rotating-word:nth-child(2) { animation-delay: 2s; }
+    .rotating-word:nth-child(3) { animation-delay: 4s; }
+    .rotating-word:nth-child(4) { animation-delay: 6s; }
+    .rotating-word:nth-child(5) { animation-delay: 8s; }
+
+    @keyframes rotateWord {
+      0%, 2% { opacity: 0; transform: translateY(20px); }
+      5%, 17% { opacity: 1; transform: translateY(0); }
+      20%, 100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    /* ======================================================
+       CSS MOCKUPS (n8n workflow + terminal)
+       ====================================================== */
+    .mock-workflow {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .mock-workflow .node {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.75em;
+      font-family: var(--mono);
+      color: var(--text-mid);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+    .mock-workflow .node.trigger { border-color: rgba(0,229,255,0.3); color: var(--accent-cyan); }
+    .mock-workflow .node.ai { border-color: rgba(255,107,43,0.3); color: var(--accent); }
+    .mock-workflow .connector {
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: rgba(255,255,255,0.15);
+      vertical-align: middle;
+      margin: 0 4px;
+    }
+
+    .mock-terminal {
+      background: #0d1117;
+      border-radius: 12px;
+      padding: 20px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--mono);
+      font-size: 0.7em;
+      line-height: 1.7;
+      text-align: left;
+    }
+    .mock-terminal .prompt { color: var(--accent); }
+    .mock-terminal .response { color: var(--accent-cyan); }
+    .mock-terminal .comment { color: var(--text-dim); }
+
+    /* ======================================================
+       CHALLENGE CARDS (PAI slide)
+       ====================================================== */
+    .challenge-card {
+      background: rgba(255,107,43,0.03);
+      border: 1px solid rgba(255,107,43,0.12);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .challenge-card .num {
+      font-family: var(--mono);
+      font-size: 1.4em;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 40px;
+      text-align: center;
+    }
+    .challenge-card strong { color: var(--text); }
+    .challenge-card p { font-size: 0.95em; color: var(--text-mid); margin: 0; }
+
+    /* ======================================================
+       WHO I AM CREDENTIALS
+       ====================================================== */
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 1.15em;
+    }
+    .credential-item:last-child { border: none; }
+    .credential-item .cred-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3em;
+      background: linear-gradient(135deg, rgba(255,107,43,0.12), rgba(255,61,0,0.06));
+      border: 1px solid rgba(255,107,43,0.15);
+      flex-shrink: 0;
+    }
+
     /* Speaker notes */
     .reveal .speaker-notes {
       font-family: 'Inter', sans-serif;
@@ -615,12 +737,71 @@
         <p style="font-size: 1.15em; color: var(--text); margin-top: 28px; font-weight: 600;">Chase Aldridge</p>
         <p style="font-size: 0.9em; color: var(--text-dim); margin-top: 8px; font-family: var(--mono);">February 12, 2026</p>
         <aside class="notes">
-          Hey everyone, thanks for having me. I'm Chase Aldridge. For the past 10 months, I've been building no-code AI agent platforms with my business partner. We've helped companies automate workflows, connect their systems, and deploy AI without writing code. Good business. Real results. But about three months ago, I realized something that changed everything. The technology I was building was about to become obsolete. Not because it doesn't work. Because something way more powerful is coming. And I want to show you what that looks like, what it means for you as marketers, and why this shift is happening faster than most people realize.
+          Hey everyone, thanks for having me. I'm Chase Aldridge. I'm going to talk about the shift happening in no-code AI agents, what's coming next, and why it matters for marketers specifically. Let me start with a quick intro.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 2: THE HOOK - Glitch + dramatic reveal
+           SLIDE 2: WHO I AM - Quick intro
+           ============================================================ -->
+      <section data-transition="slide">
+        <div class="slide-label">About Me</div>
+        <h2>Who I Am</h2>
+        <div class="grid-2" style="margin-top: 36px; align-items: center;">
+          <div style="text-align: left;">
+            <div class="credential-item fragment fade-up">
+              <div class="cred-icon">&#127891;</div>
+              <div>
+                <strong style="color: var(--text);">MIT AI/ML Graduate</strong>
+                <p style="font-size: 0.85em; margin: 2px 0 0 0; color: var(--text-dim);">Research with Stanford, Berkeley, Los Alamos National Lab</p>
+              </div>
+            </div>
+            <div class="credential-item fragment fade-up">
+              <div class="cred-icon">&#128640;</div>
+              <div>
+                <strong style="color: var(--text);">Co-Founder, The Agent Hub</strong>
+                <p style="font-size: 0.85em; margin: 2px 0 0 0; color: var(--text-dim);">AI automation agency with Ty Wells</p>
+              </div>
+            </div>
+            <div class="credential-item fragment fade-up">
+              <div class="cred-icon">&#129309;</div>
+              <div>
+                <strong style="color: var(--text);">4 AI Communities</strong>
+                <p style="font-size: 0.85em; margin: 2px 0 0 0; color: var(--text-dim);">15,000+ members learning and building with AI</p>
+              </div>
+            </div>
+            <div class="credential-item fragment fade-up">
+              <div class="cred-icon">&#9968;</div>
+              <div>
+                <strong style="color: var(--text);">Denver, CO</strong>
+                <p style="font-size: 0.85em; margin: 2px 0 0 0; color: var(--text-dim);">Helping businesses implement AI that actually works</p>
+              </div>
+            </div>
+          </div>
+          <div class="fragment zoom-in" style="text-align: center;">
+            <div style="background: rgba(255,107,43,0.04); border: 1px solid rgba(255,107,43,0.15); border-radius: 20px; padding: 40px;">
+              <p style="font-size: 1.3em; color: var(--text); font-weight: 700; margin-bottom: 16px;">What I do</p>
+              <p style="font-size: 1.05em; color: var(--text-mid); line-height: 1.6;">
+                Build AI systems that help companies<br>
+                <span style="color: var(--accent); font-weight: 600;">automate, personalize, and scale</span><br>
+                without writing code.
+              </p>
+              <div style="width: 60px; height: 2px; background: var(--accent); margin: 24px auto;"></div>
+              <p style="font-size: 0.95em; color: var(--text-dim);">
+                Until three months ago, I thought<br>that was the whole story.
+              </p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Quick intro. I'm Chase Aldridge. MIT AI/ML graduate. I've done research with Stanford, Berkeley, and Los Alamos National Lab. I co-founded The Agent Hub with my partner Ty Wells. We build AI automation for companies. I also run four AI communities with about 15,000 members. Based in Denver.
+
+          For the past 10 months, my whole world has been no-code AI agents. Building them, deploying them, helping companies use them. Until about three months ago when something changed everything. Let me tell you what happened.
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           SLIDE 3: THE HOOK - Glitch + dramatic reveal
            ============================================================ -->
       <section data-transition="slide">
         <div style="min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -628,17 +809,30 @@
             I built an AI platform for <span style="color: var(--accent);">10 months.</span>
           </p>
           <p class="fragment slam" style="font-size: 2.2em; font-weight: 800; margin-top: 16px;">
-            Then realized it was already<br>
+            Then <span style="color: var(--accent);">Claude Code</span> made it<br>
             <span class="glitch" data-text="OBSOLETE." style="color: var(--accent);">OBSOLETE.</span>
           </p>
           <div class="fragment fade-up" style="margin-top: 60px; display: flex; gap: 60px; align-items: center;">
-            <div style="text-align: center; opacity: 0.5;">
-              <p style="font-size: 3em; margin-bottom: 8px;">&#128230;</p>
+            <div style="text-align: center; opacity: 0.5; max-width: 320px;">
+              <div class="mock-workflow" style="margin-bottom: 12px;">
+                <span class="node trigger">Webhook</span>
+                <span class="connector"></span>
+                <span class="node">CRM</span>
+                <span class="connector"></span>
+                <span class="node ai">AI Node</span>
+                <span class="connector"></span>
+                <span class="node">Email</span>
+              </div>
               <p style="font-size: 1.05em; color: var(--text-dim);">Drag-and-drop<br>workflows</p>
             </div>
             <div style="font-size: 2em; color: var(--accent);">&#10132;</div>
-            <div style="text-align: center;">
-              <p style="font-size: 3em; margin-bottom: 8px;">&#129504;</p>
+            <div style="text-align: center; max-width: 340px;">
+              <div class="mock-terminal" style="margin-bottom: 12px;">
+                <span class="prompt">&gt;</span> <span class="comment">Draft outreach for Acme Corp</span><br>
+                <span class="response">Using your voice profile + their</span><br>
+                <span class="response">Q3 pain points from last call...</span><br>
+                <span class="prompt">&gt;</span> <span style="color: var(--text);">Done. 3 variants ready.</span>
+              </div>
               <p style="font-size: 1.05em; color: var(--accent);">AI that knows<br>everything about me</p>
             </div>
           </div>
@@ -651,63 +845,102 @@
       </section>
 
       <!-- ============================================================
-           SLIDE 3: STAT BOMB - $45.5B Market
-           ============================================================ -->
-      <section data-transition="zoom">
-        <div class="stat-bomb">
-          <div class="slide-label">The No-Code Market</div>
-          <div class="number" data-counter="45.5" data-prefix="$" data-suffix="B">$0B</div>
-          <div class="label">and growing <span style="color: var(--accent); font-weight: 700;">32% per year</span></div>
-        </div>
-        <aside class="notes">
-          The no-code market hit 45.5 billion dollars in 2025, growing at 32% per year. n8n, one of the big platforms in this space, went from 350 million to 2.5 billion dollar valuation in two years. Seven times growth. Why? Because people finally realized they don't need to be a programmer to automate work.
-        </aside>
-      </section>
-
-      <!-- ============================================================
-           SLIDE 4: WHAT WE BUILT - Animated cards
+           SLIDE 4: THE AGENT HUB - Rewritten with chat + webhooks
            ============================================================ -->
       <section data-transition="slide">
         <div class="slide-label">The Agent Hub</div>
         <h2>What We Built</h2>
         <div class="grid-3" style="margin-top: 36px;">
           <div class="card card-enter fragment fade-up">
-            <div class="card-icon">&#9881;&#65039;</div>
-            <h4>Visual Workflows</h4>
-            <p>Drag-and-drop automation in n8n. See your process. Debug visually. Deploy in days, not months.</p>
+            <div class="card-icon">&#128172;</div>
+            <h4>Chat Interface</h4>
+            <p>Connect to n8n, Make, or Zapier agents through a simple chat UI. <strong style="color: var(--accent);">Webhook-powered</strong> connections to any automation platform.</p>
           </div>
           <div class="card card-enter fragment fade-up">
-            <div class="card-icon">&#128279;</div>
-            <h4>400+ Integrations</h4>
-            <p>Gmail, LinkedIn, HubSpot, Slack, Salesforce. Connect everything without writing a line of code.</p>
+            <div class="card-icon">&#129302;</div>
+            <h4>No-Code Agent Deployment</h4>
+            <p>Non-technical teams deploying AI workflows. Marketing owning their <strong style="color: var(--accent);">automation stack</strong> without calling IT.</p>
           </div>
           <div class="card card-enter fragment fade-up">
             <div class="card-icon">&#9889;</div>
             <h4>Real Results</h4>
-            <p>Lead response: <strong style="color: var(--accent);">4 hours to 4 minutes.</strong> Personalized sequences from LinkedIn data.</p>
+            <p>Lead response: <strong style="color: var(--accent);">4 hours to 4 minutes.</strong> Personalized sequences from LinkedIn data at scale.</p>
           </div>
         </div>
-        <div class="fragment zoom-in" style="margin-top: 40px; display: flex; gap: 80px; justify-content: center;">
+        <div class="fragment zoom-in" style="margin-top: 36px; display: flex; gap: 60px; justify-content: center; align-items: center;">
           <div style="text-align: center;">
-            <div class="counter-number" data-counter="7" data-suffix="x" style="font-size: 4em;">0x</div>
+            <div class="counter-number" data-counter="45.5" data-prefix="$" data-suffix="B" style="font-size: 3.5em;">$0B</div>
+            <div class="counter-label">no-code market (32%/yr)</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="counter-number" data-counter="7" data-suffix="x" style="font-size: 3.5em;">0x</div>
             <div class="counter-label">n8n valuation growth</div>
           </div>
           <div style="text-align: center;">
-            <div class="counter-number" data-counter="73" data-suffix="%" style="font-size: 4em;">0%</div>
-            <div class="counter-label">faster campaign dev</div>
+            <div class="counter-number" data-counter="40" data-suffix="%" style="font-size: 3.5em;">0%</div>
+            <div class="counter-label">enterprise apps with agents by 2026</div>
           </div>
         </div>
+        <p class="fragment fade-up" style="margin-top: 24px; font-size: 1em; color: var(--text-dim); text-align: center;">
+          The signal was clear. The no-code explosion was real. But every workflow we built hit the same ceiling.
+        </p>
         <aside class="notes">
-          The Agent Hub is what we built with my partner Ty. You shouldn't need a developer to automate your marketing workflows. You should be able to see your process, connect your tools, and let AI handle the repetitive stuff.
+          The Agent Hub is what my partner Ty and I built. It's a chat interface that connects to automation platforms like n8n through webhooks. Non-technical teams can deploy AI workflows without developers.
 
-          We've helped companies route leads automatically. Personalize outreach at scale. One client cut their lead response time from 4 hours to 4 minutes. 73% faster campaign development. Marketing teams building this without calling IT.
+          The market signal was massive. No-code hit 45.5 billion dollars in 2025, growing 32% per year. n8n went from 350 million to 2.5 billion valuation in two years. Gartner says 40% of enterprise apps will embed AI agents by end of 2026.
+
+          We helped companies cut lead response from 4 hours to 4 minutes. Marketing teams building automation without calling IT. Real results, real business.
 
           But every workflow we built hit the same ceiling eventually.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 5: THE CEILING - Fail cards with X marks
+           SLIDE 5: TOOLS VS AGENTS - Battle layout (MOVED from 9)
+           ============================================================ -->
+      <section data-transition="slide">
+        <h2>AI Tools <span style="color: var(--text-dim); font-weight: 400;">vs</span> AI Agents</h2>
+        <div class="vs-battle" style="margin-top: 32px;">
+          <div class="vs-side old fragment fly-left">
+            <h3 style="color: var(--text-dim);">AI Tools</h3>
+            <ul>
+              <li><span class="vs-dot"></span>You prompt, it responds</li>
+              <li><span class="vs-dot"></span>No memory between sessions</li>
+              <li><span class="vs-dot"></span>Generic outputs</li>
+              <li><span class="vs-dot"></span>You do the integration</li>
+              <li><span class="vs-dot"></span>Transactional</li>
+            </ul>
+          </div>
+          <div class="vs-center">
+            <div class="vs-badge">VS</div>
+          </div>
+          <div class="vs-side new fragment fly-right">
+            <h3>AI Agents</h3>
+            <ul>
+              <li><span class="vs-dot"></span>Proactive suggestions</li>
+              <li><span class="vs-dot"></span>Persistent memory</li>
+              <li><span class="vs-dot"></span>Personalized to YOU</li>
+              <li><span class="vs-dot"></span>Connected to your systems</li>
+              <li><span class="vs-dot"></span>Compounding value</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fragment fade-up" style="margin-top: 36px; text-align: center; font-size: 1.15em; color: var(--text-mid);">
+          Most companies are still on the left side. The opportunity is on the right.
+        </p>
+        <aside class="notes">
+          Before we get into the ceiling, let me frame the difference. AI tools are transactional. You open ChatGPT. You type a prompt. It gives you an answer. Conversation ends. Next time, it doesn't remember anything.
+
+          AI agents are fundamentally different. Proactive. Memory. Connected to your systems. They learn over time.
+
+          Real example: Preparing for a client meeting. I asked my AI to summarize our past conversations. It pulled context from three different meetings over two months. Reminded me they're worried about data privacy. Flagged they responded well to case studies but hated generic ROI projections.
+
+          Most companies are still on the left side. The opportunity is on the right. But even the agent platforms have limitations.
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           SLIDE 6: THE CEILING - Updated fail cards
            ============================================================ -->
       <section data-transition="convex">
         <h2>The Ceiling</h2>
@@ -718,32 +951,35 @@
             <p>Every workflow starts fresh. Great campaign? Next one starts from zero.</p>
           </div>
           <div class="fail-card fragment fly-right">
-            <h4><span class="x-mark">&#10005;</span> No Context</h4>
-            <p>Doesn't learn your brand voice. Doesn't know you hate the word "delve."</p>
-          </div>
-          <div class="fail-card fragment fly-left">
             <h4><span class="x-mark">&#10005;</span> No Adaptation</h4>
             <p>Can't learn that Thursday emails get 40% higher open rates for YOUR audience.</p>
           </div>
+          <div class="fail-card fragment fly-left">
+            <h4><span class="x-mark">&#10005;</span> Manually Built</h4>
+            <p>Every single workflow is hand-crafted. Node by node. Connection by connection.</p>
+          </div>
           <div class="fail-card fragment fly-right">
-            <h4><span class="x-mark">&#10005;</span> Manual Everything</h4>
-            <p>You tell it everything. Every time. No learning. No improvement.</p>
+            <h4><span class="x-mark">&#10005;</span> Difficult Orchestration</h4>
+            <p>Getting multiple agents to work together? That's where the real pain lives.</p>
           </div>
         </div>
         <div class="fragment slam" style="margin-top: 44px;">
-          <p style="font-size: 1.4em; font-style: italic; color: var(--text); text-align: center; font-weight: 300;">
-            "A really fast assistant who <span style="color: #ff4444; font-weight: 700;">forgets everything</span><br>the moment the task is done."
+          <p style="font-size: 1.35em; font-style: italic; color: var(--text); text-align: center; font-weight: 300;">
+            "An automation with a <span style="color: #ff4444; font-weight: 700;">wig and lipstick on it.</span><br>
+            Really just an LLM call in the middle of a workflow."
           </p>
         </div>
         <aside class="notes">
-          This is where every no-code platform hits a wall. The workflows don't remember anything. You run a campaign. It works great. Next campaign starts from zero again. It doesn't remember that your audience responds better to questions than statements. It doesn't know that you hate the word "delve."
+          This is where every no-code platform hits a wall. The workflows don't remember anything. You run a campaign. It works great. Next campaign starts from zero again.
 
-          Every time, you're starting from scratch. Your brand voice is nuanced. What lands with your audience is contextual. No-code platforms can execute what you tell them. But they can't learn.
+          Every workflow is hand-crafted. Node by node. And the second you need multiple agents working together, orchestrating complex tasks? That's where it really breaks down. That was the biggest pain point for Ty and me.
+
+          At the end of the day, what we were building was really just an automation with a wig and lipstick on it. An LLM call in the middle of a workflow. A pseudo-assistant that looks smart but forgets everything the moment the task is done.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 6: WHAT CHANGED - Quote + before/after
+           SLIDE 7: WHAT CHANGED - Quote + before/after (updated)
            ============================================================ -->
       <section data-transition="zoom">
         <div class="slide-label">The Shift</div>
@@ -766,23 +1002,35 @@
             </div>
           </div>
         </div>
-        <p class="fragment fade-up" style="margin-top: 30px; font-size: 1.05em; color: var(--text-mid); text-align: center;">
-          Marketers are <span style="color: var(--accent); font-weight: 700;">already great</span> at thinking through problems.<br>Same skillset. Way more powerful tool.
+        <p class="fragment fade-up" style="margin-top: 30px; font-size: 1.1em; color: var(--text-mid); text-align: center;">
+          The new skill isn't coding. It's <span style="color: var(--accent); font-weight: 700;">communicating your vision clearly.</span><br>
+          And marketers have been doing that their entire careers.
         </p>
         <aside class="notes">
-          Coding agents. AI that can write software just by talking to it. I started using Claude Code seriously. Not as a no-code platform. As an actual AI that writes code for me. I describe what I want in plain English, and it builds it.
+          Coding agents changed everything. AI that can write software just by talking to it. I started using Claude Code seriously. Not as a no-code platform. As an actual AI that writes code for me. I describe what I want in plain English, and it builds it.
 
-          The gap between no-code and full-code basically disappeared. No-code solved the "I can't code" problem. And AI just solved that problem in a more powerful way. The difference between building something simple and complex is no longer your technical skill. It's your ability to think through the problem. And marketers are REALLY good at that.
+          The gap between no-code and full-code basically disappeared. The difference between building something simple and complex is no longer your technical skill. It's your ability to communicate what you want. To articulate your vision clearly.
+
+          And here's the thing. Marketers are already incredible at that. You communicate ideas for a living. You articulate vision to audiences every day. That skill set is exactly what this new era requires.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 7: PAI - The Gap stat bomb
+           SLIDE 8: PAI - Rotating word + challenges
            ============================================================ -->
       <section data-transition="slide">
         <div class="slide-label">Personal AI Infrastructure</div>
-        <h2>AI that actually <span class="gradient-text">knows</span> you</h2>
-        <div class="grid-2" style="margin-top: 30px; align-items: center;">
+        <h2 style="line-height: 1.2;">AI that actually
+          <span class="rotating-word-container">
+            <span class="rotating-word gradient-text" style="font-weight: 800;">knows</span>
+            <span class="rotating-word gradient-text" style="font-weight: 800;">grows with</span>
+            <span class="rotating-word gradient-text" style="font-weight: 800;">learns from</span>
+            <span class="rotating-word gradient-text" style="font-weight: 800;">works for</span>
+            <span class="rotating-word gradient-text" style="font-weight: 800;">remembers</span>
+          </span>
+          you
+        </h2>
+        <div class="grid-2" style="margin-top: 30px; align-items: start;">
           <div style="text-align: left;">
             <div class="fragment fly-left" style="display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
               <span style="font-size: 1.4em;">&#128171;</span>
@@ -813,28 +1061,39 @@
               </div>
             </div>
           </div>
-          <div class="fragment zoom-in" style="text-align: center;">
-            <div style="background: rgba(255,107,43,0.04); border: 1px solid rgba(255,107,43,0.15); border-radius: 20px; padding: 40px; position: relative;">
-              <div style="font-size: 5em; font-weight: 900; color: var(--accent); line-height: 1;" data-counter="88" data-suffix="%">0%</div>
-              <p style="font-size: 1em; color: var(--text-mid); margin: 8px 0 24px;">of marketers use AI daily</p>
-              <div style="width: 80%; height: 2px; background: rgba(255,255,255,0.08); margin: 0 auto;"></div>
-              <div style="font-size: 3.5em; font-weight: 900; color: var(--text-dim); line-height: 1; margin-top: 24px;" data-counter="19.6" data-suffix="%">0%</div>
-              <p style="font-size: 1em; color: var(--text-dim); margin: 8px 0 0;">use AI agents</p>
-              <p style="font-size: 1.1em; color: var(--accent); font-weight: 700; margin-top: 20px;">THAT'S THE GAP.</p>
+          <div class="fragment zoom-in" style="text-align: left;">
+            <p style="font-size: 1.1em; color: var(--text); font-weight: 700; margin-bottom: 20px;">The hard parts of building PAI:</p>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div class="challenge-card">
+                <div class="num">1</div>
+                <p><strong>Creating an organized structure</strong> for your AI to navigate</p>
+              </div>
+              <div class="challenge-card">
+                <div class="num">2</div>
+                <p><strong>Efficiently finding context</strong> as your content grows</p>
+              </div>
+              <div class="challenge-card">
+                <div class="num">3</div>
+                <p><strong>Teaching it your voice</strong> and preferences</p>
+              </div>
+              <div class="challenge-card">
+                <div class="num">4</div>
+                <p><strong>Connecting it to your tools</strong> and data sources</p>
+              </div>
             </div>
           </div>
         </div>
         <aside class="notes">
-          Daniel Miessler has this concept called Personal AI Infrastructure. PAI for short. What if your AI wasn't a tool you pick up and put down? What if it was infrastructure that knows you, remembers everything, and gets smarter the more you use it?
+          Daniel Miessler coined this concept. Personal AI Infrastructure. PAI. What if your AI wasn't a tool you pick up and put down? What if it was infrastructure that knows you, remembers everything, and gets smarter the more you use it?
 
-          Think about the best creative director you ever worked with. Who knew your brand voice so well they could write copy that sounded exactly like you. That's what Personal AI Infrastructure is.
+          Think about the best creative director you ever worked with. Who knew your brand voice so well they could write copy that sounded exactly like you. That's what PAI is.
 
-          88% of marketers use AI daily. But only 19.65% use AI agents. That's the gap. Most people are using AI as a tool. What's coming is AI as infrastructure.
+          But building it isn't trivial. You need an organized structure. You need efficient context retrieval as things grow. You need to teach it your voice. And you need to connect it to all your tools and data. These are real challenges. But they're solvable. Let me show you what it looks like when you solve them.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 8: MEET JAX - Dramatic reveal + live demo
+           SLIDE 9: MEET JAX - Dramatic reveal + clickable live demo
            ============================================================ -->
       <section data-transition="zoom" data-background-gradient="radial-gradient(ellipse at center, #0d0d15, #06060b)">
         <div style="min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -864,108 +1123,65 @@
               <p style="font-size: 1em; color: var(--text-dim); font-family: var(--mono);">Tools</p>
             </div>
           </div>
-          <p class="fragment zoom-in" style="margin-top: 44px; font-size: 1.3em; color: var(--accent); font-weight: 700; letter-spacing: 0.05em;">
+          <a href="https://jax.chasealdridge.com/chat" target="_blank" class="fragment zoom-in" style="margin-top: 44px; font-size: 1.3em; color: var(--accent); font-weight: 700; letter-spacing: 0.05em; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; padding: 14px 36px; border: 2px solid var(--accent); border-radius: 12px; background: rgba(255,107,43,0.08); transition: all 0.3s;">
             &#9654; LIVE DEMO
-          </p>
+          </a>
         </div>
         <aside class="notes">
           Let me show you what this looks like in practice. I call my system Jax. It's built on Claude Code, but I've customized everything about it. Skills. Memory. Context. It knows me.
 
           This morning, I asked Jax to draft an outreach email for a potential client. I didn't give it a template. I didn't explain my brand voice. It already knows. It drafted the email in 15 seconds. And it sounded exactly like me. Because it's been learning my voice for months. That's not a party trick. That's a competitive advantage.
 
-          Reid Hoffman said, "A single person will operate with the capacity of an entire team."
-
-          [TRANSITION TO LIVE DEMO - Open Jax Dashboard at localhost:3456/chat]
+          [CLICK LIVE DEMO to open jax.chasealdridge.com/chat]
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 9: TOOLS VS AGENTS - Battle layout
+           SLIDE 10: WHAT YOU CAN DO NOW - Renamed + updated cards
            ============================================================ -->
       <section data-transition="slide">
-        <h2>AI Tools <span style="color: var(--text-dim); font-weight: 400;">vs</span> AI Agents</h2>
-        <div class="vs-battle" style="margin-top: 32px;">
-          <div class="vs-side old fragment fly-left">
-            <h3 style="color: var(--text-dim);">AI Tools</h3>
-            <ul>
-              <li><span class="vs-dot"></span>You prompt, it responds</li>
-              <li><span class="vs-dot"></span>No memory between sessions</li>
-              <li><span class="vs-dot"></span>Generic outputs</li>
-              <li><span class="vs-dot"></span>You do the integration</li>
-              <li><span class="vs-dot"></span>Transactional</li>
-            </ul>
-          </div>
-          <div class="vs-center">
-            <div class="vs-badge">VS</div>
-          </div>
-          <div class="vs-side new fragment fly-right">
-            <h3>AI Agents</h3>
-            <ul>
-              <li><span class="vs-dot"></span>Proactive suggestions</li>
-              <li><span class="vs-dot"></span>Persistent memory</li>
-              <li><span class="vs-dot"></span>Personalized to YOU</li>
-              <li><span class="vs-dot"></span>Connected to your systems</li>
-              <li><span class="vs-dot"></span>Compounding value</li>
-            </ul>
-          </div>
-        </div>
-        <div class="fragment slam" style="margin-top: 36px; text-align: center;">
-          <span style="font-size: 3.5em; font-weight: 900; color: var(--accent);" data-counter="40" data-suffix="%">0%</span>
-          <p style="font-size: 1.05em; color: var(--text-mid); margin-top: 4px;">of enterprise apps will embed AI agents by end of 2026</p>
-        </div>
-        <aside class="notes">
-          AI tools are transactional. You open ChatGPT. You type a prompt. It gives you an answer. Conversation ends. Next time, it doesn't remember anything.
-
-          AI agents are fundamentally different. Proactive. Memory. Connected to your systems. They learn over time.
-
-          Real example: Preparing for a client meeting. Asked Jax to summarize our past conversations. It pulled context from three different meetings over two months. Reminded me they're worried about data privacy. Flagged they responded well to case studies but hated generic ROI projections.
-
-          By end of 2026, 40% of enterprise apps will have AI agents embedded. Up from less than 5% now.
-        </aside>
-      </section>
-
-      <!-- ============================================================
-           SLIDE 10: THE MARKETER'S EDGE - Practical cards
-           ============================================================ -->
-      <section data-transition="slide">
-        <div class="slide-label">For You</div>
-        <h2>The Marketer's Edge</h2>
+        <div class="slide-label">Start Here</div>
+        <h2>What You Can Do <span class="gradient-text">Now</span></h2>
         <div class="grid-3" style="margin-top: 32px;">
           <div class="card card-enter fragment fade-up">
             <div class="card-icon">&#9997;&#65039;</div>
             <h4>Content in YOUR Voice</h4>
-            <p>Not generic AI writing. It learns your style from your published work. <strong style="color: var(--accent);">90 min to 15 min</strong> per blog post.</p>
+            <p>Organize your top writing pieces in each category. Use them to <strong style="color: var(--accent);">train your AI on your voice.</strong></p>
           </div>
           <div class="card card-enter fragment fade-up">
-            <div class="card-icon">&#128270;</div>
-            <h4>Research in Minutes</h4>
-            <p>Competitive analysis, audience insights, trend reports. Ask once. It runs <strong style="color: var(--accent);">continuously</strong> in the background.</p>
+            <div class="card-icon">&#128221;</div>
+            <h4>Document Your Process</h4>
+            <p>Create a skill or template your agent can follow. <strong style="color: var(--accent);">Codify what you already know.</strong></p>
           </div>
           <div class="card card-enter fragment fade-up">
-            <div class="card-icon">&#128640;</div>
-            <h4>Context-Aware Workflows</h4>
-            <p>Automation that knows your goals. Selects the right message, case study, CTA. <strong style="color: var(--accent);">Automatically.</strong></p>
+            <div class="card-icon">&#128214;</div>
+            <h4>Create Your AI Playbook</h4>
+            <p>Write down your workflows, voice guidelines, and decision frameworks so <strong style="color: var(--accent);">AI can follow your patterns.</strong></p>
           </div>
         </div>
         <div class="fragment zoom-in" style="margin-top: 44px; text-align: center;">
-          <p style="font-size: 1.4em; color: var(--text); font-weight: 300;">
-            The question isn't <em>"Can AI write for you?"</em>
+          <p style="font-size: 1.3em; color: var(--text); font-weight: 300;">
+            The gap between you and AI isn't <em>technical.</em>
           </p>
-          <p style="font-size: 1.6em; font-weight: 800; margin-top: 12px;">
-            It's <span class="gradient-text">"Can AI write like YOU?"</span>
+          <p style="font-size: 1.5em; font-weight: 800; margin-top: 12px;">
+            It's <span class="gradient-text">organizational.</span> Start documenting how YOU work.
           </p>
         </div>
         <aside class="notes">
-          Content creation: You probably use AI to draft blog posts. Then spend 20 minutes editing because it sounds like AI wrote it. With Personal AI that knows your brand voice? It writes like YOU from the start. One marketer went from 90 minutes per blog post to 15 minutes.
+          So what can you actually do right now? Three things.
 
-          Research: Competitive research is tedious. AI agents do that continuously in the background. I asked Jax to track three competitors' content strategies. Every day, it summarizes what they published.
+          First, organize your best writing. Your top blog posts, emails, campaigns. Group them by category. This becomes the training data for your AI's understanding of your voice.
 
-          Workflows that understand context: Your marketing automation actually understanding your business goals. Not just filling in name fields. Selecting the right message, case study, CTA based on everything it knows about what works.
+          Second, document your research process. How do you evaluate competitors? How do you qualify leads? Write it down as a template or skill your AI can follow. You're codifying expertise you already have.
+
+          Third, create your AI playbook. Your workflows, your voice guidelines, your decision frameworks. When you write these down, AI can follow your patterns instead of guessing.
+
+          The gap between you and AI isn't technical. It's organizational. The people who win are the ones who start documenting how they work.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 11: THE LESSON - Evolution journey
+           SLIDE 11: THE LESSON - Evolution journey (updated)
            ============================================================ -->
       <section data-transition="convex">
         <h2>The Lesson</h2>
@@ -990,27 +1206,27 @@
           </div>
         </div>
         <div class="fragment slam" style="margin-top: 44px; text-align: center;">
-          <p style="font-size: 1.5em; color: var(--text); font-weight: 700; line-height: 1.45;">
-            Start small. Pick <span style="color: var(--accent);">ONE</span> repetitive task.<br>
-            Teach your AI how to do it <span class="gradient-text">your way.</span><br>
+          <p style="font-size: 1.4em; color: var(--text); font-weight: 700; line-height: 1.45;">
+            This isn't a replacement. It's an <span style="color: var(--accent);">evolution.</span><br>
           </p>
-          <p class="fragment fade-up" style="font-size: 1em; color: var(--text-dim); margin-top: 16px;">
-            Then add another. Then another. In six months, you'll have something powerful.
+          <p class="fragment fade-up" style="font-size: 1.15em; color: var(--text-mid); margin-top: 16px; font-weight: 300; line-height: 1.5;">
+            The skills you already have, <span style="color: var(--accent);">communication, vision, strategy,</span><br>
+            are exactly what the AI era requires.
           </p>
         </div>
         <aside class="notes">
-          No-code wasn't a mistake. It was absolutely necessary. It taught millions of professionals that automation was accessible. No-code was the gateway drug.
+          No-code wasn't a mistake. It was absolutely necessary. It taught millions of professionals that automation was accessible. No-code was the gateway.
 
-          The companies who understand this won't pick one or the other. No-code for operations. Personal AI for intelligence.
+          Coding agents were the bridge. Natural language replaced syntax and the gap between technical and non-technical collapsed.
 
-          By mid-2027, the question won't be "Do you use AI?" It'll be "Does your AI know your business?" Generic AI will be table stakes. Personal AI infrastructure will be the competitive advantage.
+          And Personal AI is where it's going. AI that knows you, remembers you, and compounds value over time.
 
-          The ones who win are building their infrastructure now. Not waiting for perfect. Building it, learning, iterating.
+          This isn't a replacement. It's a natural evolution. And here's the thing that should excite every marketer in this room. The skills you already have. Communication. Articulating vision. Strategic thinking. Those are exactly the skills this new era requires. You're not behind. You're already equipped.
         </aside>
       </section>
 
       <!-- ============================================================
-           SLIDE 12: CONNECT - Clean CTA
+           SLIDE 12: CONNECT - QR code updated to LinkedIn
            ============================================================ -->
       <section data-transition="zoom" data-background-gradient="radial-gradient(ellipse at center, #0d0d15, #06060b)">
         <h2 style="font-size: 2.4em;">Let's <span class="gradient-text">Connect</span></h2>
@@ -1018,9 +1234,9 @@
         <div style="display: flex; gap: 64px; justify-content: center; align-items: start; margin-top: 44px; flex-wrap: wrap;">
           <div style="text-align: center;">
             <div style="width: 180px; height: 180px; background: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 40px rgba(255,107,43,0.15);">
-              <img src="images/qr-code.png" alt="QR code for chasealdridge.com" width="160" height="160" style="border-radius: 8px;">
+              <img src="images/qr-code.png" alt="QR code for Chase Aldridge LinkedIn profile" width="160" height="160" style="border-radius: 8px;">
             </div>
-            <p style="font-size: 0.95em; color: var(--text-dim); font-family: var(--mono);">scan me</p>
+            <p style="font-size: 0.95em; color: var(--text-dim); font-family: var(--mono);">scan to connect on LinkedIn</p>
           </div>
           <div style="text-align: left;">
             <div class="connect-link"><span class="dot"></span><a href="https://chasealdridge.com">chasealdridge.com</a></div>
@@ -1041,7 +1257,7 @@
         <aside class="notes">
           My website is chasealdridge.com. I write about this stuff weekly. AI strategy, implementation, what's actually working versus what's hype. I also run a few AI communities with about 15,000 professionals.
 
-          Connect with me on LinkedIn. I post there pretty much daily. And if you're here in Boulder or Denver and want to grab coffee and talk through how this applies to your business, reach out. Thanks for your time. Happy to take questions.
+          That QR code goes straight to my LinkedIn. Connect with me there. I post pretty much daily. And if you're here in Boulder or Denver and want to grab coffee and talk through how this applies to your business, reach out. Thanks for your time. Happy to take questions.
         </aside>
       </section>
 
